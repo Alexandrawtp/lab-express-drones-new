@@ -8,7 +8,6 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
-
 const app = express();
 
 // require database configuration
@@ -19,9 +18,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 // Express View engine setup
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -44,8 +41,8 @@ app.use((req, res, next) => {
   res.render('not-found');
 });
 
-
 app.listen(process.env.PORT, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
 })
+
 
